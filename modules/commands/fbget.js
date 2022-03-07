@@ -13,10 +13,10 @@ const axios = global.nodemodule['axios'];
 const fs = global.nodemodule["fs-extra"];
 if (!args[0]){ return api.sendMessage("⚡Bạn phải ngập url video facebook !!!", event.threadID, event.messageID);}
 const link = args.join(" ");
-let mystr = `${link}`;
-let split_str = mystr.replace(/[^0-9]/g, '')
+//let mystr = `${link}`;
+//let split_str = mystr.replace(/[^0-9]/g, '')
 try {
-const res = await axios.get(`https://simsimi.info/v1/fbwatch.php?id=${split_str}`);
+const res = await axios.get(`https://api-ttk.herokuapp.com/videodl?url=${link}`);
 const data = res.data
 const link = data.url
 console.log(link)
